@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22020" started-at="2016-09-07T18:52:29Z" finished-at="2016-09-07T18:52:51Z">
+  <suite name="Default suite" duration-ms="19291" started-at="2016-09-07T22:36:06Z" finished-at="2016-09-07T22:36:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22020" started-at="2016-09-07T18:52:29Z" finished-at="2016-09-07T18:52:51Z">
-      <class name="TEDHotelReservation.TestRoomSearch">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TEDHotelReservation.TestRoomSearch@51efea79]" name="setUp" is-config="true" duration-ms="4134" started-at="2016-09-07T11:52:29Z" finished-at="2016-09-07T11:52:33Z">
+    <test name="Default test" duration-ms="19291" started-at="2016-09-07T22:36:06Z" finished-at="2016-09-07T22:36:25Z">
+      <class name="TEDHotelReservation.TestHotelFilter">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:TEDHotelReservation.TestHotelFilter@4501b7af]" name="setUp" is-config="true" duration-ms="3916" started-at="2016-09-07T15:36:06Z" finished-at="2016-09-07T15:36:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testRanorexTestCase()[pri:0, instance:TEDHotelReservation.TestRoomSearch@51efea79]" name="testRanorexTestCase" duration-ms="14896" started-at="2016-09-07T11:52:33Z" finished-at="2016-09-07T11:52:48Z">
+        <test-method status="PASS" signature="testFilterByRating()[pri:0, instance:TEDHotelReservation.TestHotelFilter@4501b7af]" name="testFilterByRating" duration-ms="15363" started-at="2016-09-07T15:36:10Z" finished-at="2016-09-07T15:36:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRanorexTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TEDHotelReservation.TestRoomSearch@51efea79]" name="tearDown" is-config="true" duration-ms="2979" started-at="2016-09-07T11:52:48Z" finished-at="2016-09-07T11:52:51Z">
+        </test-method> <!-- testFilterByRating -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:TEDHotelReservation.TestHotelFilter@4501b7af]" name="tearDown" is-config="true" duration-ms="0" started-at="2016-09-07T15:36:25Z" finished-at="2016-09-07T15:36:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- TEDHotelReservation.TestRoomSearch -->
+      </class> <!-- TEDHotelReservation.TestHotelFilter -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

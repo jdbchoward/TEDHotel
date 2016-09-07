@@ -92,6 +92,19 @@ public class ElementsRepositoryAction {
 	public WebElement getElement(String key) {
 		return this.getLocator(key, null, true);
 	}
+	
+	
+	public By getByObjectFromKey(String key,String[] replace)
+	{
+		Map<String, String> m = elementRepository.get(key);
+		String type = m.get("type");
+		String value = m.get("value");
+		if (replace != null) {
+			value = this.replaceLocatorString(value, replace);
+		}
+		return this.getBy(type, value);
+		
+	}
 
 	public WebElement getElement(String key, String[] replace) {
 
@@ -112,14 +125,14 @@ public class ElementsRepositoryAction {
 	private WebElement getLocator(String key, String[] replace, boolean needWait) {
 		WebElement element = null;
 		if (elementRepository.containsKey(key)) {
-			Map<String, String> m = elementRepository.get(key);
-			String type = m.get("type");
-			String value = m.get("value");
-			if (replace != null) {
-				value = this.replaceLocatorString(value, replace);
-			}
-			By by = this.getBy(type, value);
-
+//			Map<String, String> m = elementRepository.get(key);
+//			String type = m.get("type");
+//			String value = m.get("value");
+//			if (replace != null) {
+//				value = this.replaceLocatorString(value, replace);
+//			}
+//			By by = this.getBy(type, value);
+		By by=getByObjectFromKey(key,replace);
 			if (!needWait)
 				return element = driver.findElement(by);
 			if (needWait && wait.waitElementToBeDisplayed(by))

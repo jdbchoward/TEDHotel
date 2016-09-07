@@ -1,5 +1,8 @@
 package TEDHotelReservation;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
 /**   
 * @Title: TED Hotel Reservation Automation Test case 
 * @Package TEDHotelReservation 
@@ -36,14 +39,13 @@ import PageObjects.TestOperations;
 import PageObjects.Wait;
 import junit.framework.Assert;
 
-public class TestRoomSearch {
+public class TestHotelFilter {
 	private WebDriver driver;
-	private String baseUrl;
 	private Wait wait;
 	CommonActions common;
 	ElementsRepositoryAction elementsRepositoryAction;
 	TestOperations testOperation;
-	static Logger log = Logger.getLogger(TestRoomSearch.class.getName());
+	static Logger log = Logger.getLogger(TestHotelFilter.class.getName());
 
 	@BeforeTest(alwaysRun = true)
 	public void setUp() throws Exception {
@@ -52,42 +54,30 @@ public class TestRoomSearch {
 		String browserType = common.getSettings().getValue("browserType");
 		BrowserLoader brower = new BrowserLoader(browserType);
 		driver = brower.driver;
-		// elementsRepositoryAction =
-		// ElementsRepositoryAction.getInstance(driver);
-		//
-		// baseUrl = "https://demox.mmxreservations.com/";
 		wait = new Wait(driver);
-
+		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
 		testOperation = PageFactory.initElements(driver, TestOperations.class);
 
 	}
 
 	@Test
-	public void testSearchInRegularWay() throws Exception {
+	public void testFilterByRating() throws Exception {
 
+		int expectedhotelNumber=0;
+		int actualhotelnumber=0;
 		testOperation.searchRooms();
-
-		// driver.findElement(By.xpath("(//input[@name='startDate'])[2]")).clear();
-		// driver.findElement(By.xpath("(//input[@name='startDate'])[2]")).sendKeys("Apr
-		// 20, 2018");
-		// driver.findElement(By.xpath("(//input[@value='Search'])[2]")).click();
-
 		wait.threadWait(10000);
-
-		log.debug(driver.getTitle());
-		Assert.assertTrue(driver.getTitle().equalsIgnoreCase("Hotel List"));
-
-	}
-
-	@Test(dependsOnMethods = { "testSearchInRegularWay" })
-	public void testSearchWhenDateFormatIsWrong() throws Exception {
-
-		testOperation.searchRoomsWhenDateWrong();
-
-		String tooltip = testOperation.getToolTip("TED_Search_tooltip", "content");
-		Assert.assertTrue(tooltip.equalsIgnoreCase("Should be a valid date"));
+		String rateLabel=testOperation.filterByRating();
+		expectedhotelNumber=testOperation.getHotelNumber(rateLabel);		
+		
+		String hotels=elementsRepositoryAction.getElementNoWait("TED_Filter_availableHotels").getText();
+		actualhotelnumber=testOperation.getHotelNumber(hotels);
+		
+		Assert.assertEquals(expectedhotelNumber, actualhotelnumber);
 
 	}
+
+
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {

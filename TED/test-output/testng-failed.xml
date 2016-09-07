@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TEDHotelReservation.TestRoomSearch">
+      <class name="TEDHotelReservation.TestHotelFilter">
         <methods>
-          <include name="testRanorexTestCase"/>
+          <include name="testFilterByRating"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- TEDHotelReservation.TestRoomSearch -->
+      </class> <!-- TEDHotelReservation.TestHotelFilter -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

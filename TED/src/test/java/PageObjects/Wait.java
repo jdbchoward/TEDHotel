@@ -32,6 +32,17 @@ public class Wait {
 		// PageFactory .initElements(driver, this);
 	}
 
+	
+	public void threadWait(int ms)
+	{
+		try {
+			Thread.sleep(ms);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public void waitForElementPresent(String locator) {
 		try {
 			(new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
@@ -41,6 +52,16 @@ public class Wait {
 
 	}
 
+	public void waitForElementPresent(By by) {
+		try {
+			(new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(by));
+		} catch (Exception e) {
+
+		}
+
+	}
+	
+	
 	public void waitForElementIsClickable(final By by) {
 		(new WebDriverWait(driver, timeout)).until(ExpectedConditions.elementToBeClickable(by));
 	}

@@ -28,3 +28,16 @@ TED_Search_RoomCount:
 TED_Search_btn:
   type:xpath
   value:"(//input[@value='Search'])[2]"
+TED_Search_tooltip:
+  type:xpath
+  value:"//div[@content='Should be a valid date']"  
+TED_Filter_rating:
+  type:xpath
+  value:"//input[@type='checkbox'])[2]"
+TED_Filter_lable:
+  type:xpath
+  value:"//em[contains(text(),'2 Hotels')]"
+TED_Filter_availableHotels:
+  type:xpath
+  value:"//h4[contains(text(),'Available Hotels')]"  
+  
