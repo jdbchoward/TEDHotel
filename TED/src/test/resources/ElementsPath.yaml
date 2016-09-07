@@ -10,12 +10,21 @@ baidu_input1:
 baidu_button1:
   type:xpath
   value:"//div[@id='%productId%']//div"
-JD_button1:
-  type:xpath
-  value:"//a[contains(text(),'企业采购')]"
 Ranorex_btn_Search:
   type:xpath
   value:"//input[@id='gsc-i-id1']"
 Ranorex_btn_Img:
   type:cssSelector
   value:"figure.image > img"
+TED_Search_StartDate:
+  type:xpath
+  value:"//input[@name='startDate']"
+TED_Search_EndDate:
+  type:xpath
+  value:"//input[@name='endDate']"
+TED_Search_RoomCount:
+  type:xpath
+  value:"//input[@id='roomCount']"
+TED_Search_btn:
+  type:xpath
+  value:"//input[@value='Search']"
