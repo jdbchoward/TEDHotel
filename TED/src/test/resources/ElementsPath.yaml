@@ -18,13 +18,13 @@ Ranorex_btn_Img:
   value:"figure.image > img"
 TED_Search_StartDate:
   type:xpath
-  value:"//input[@name='startDate']"
+  value:"(//input[@name='startDate'])[2]"
 TED_Search_EndDate:
   type:xpath
-  value:"//input[@name='endDate']"
+  value:"(//input[@name='endDate'])[2]"
 TED_Search_RoomCount:
   type:xpath
-  value:"//input[@id='roomCount']"
+  value:"(//input[@id='roomCount'])[2]"
 TED_Search_btn:
   type:xpath
-  value:"//input[@value='Search']"
+  value:"(//input[@value='Search'])[2]"

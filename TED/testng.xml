@@ -3,7 +3,10 @@
 <suite name="Suite" parallel="classes" thread-count="3">
 	<test name="Test" enabled="true">
 		<packages>
+		<!--
 			<package name="TestSuite1.*" />
+			-->
+			<package name="TEDHotelReservation.*" />
 		</packages>
 
 		<classes>

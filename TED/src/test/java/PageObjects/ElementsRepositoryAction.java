@@ -32,6 +32,7 @@ public class ElementsRepositoryAction {
 		this.driver = driver;
 		wait = new Wait(driver);
 	}
+	
 
 	public static synchronized ElementsRepositoryAction getInstance(WebDriver driver) {
 		if (elementsRepositoryInstance == null) {
