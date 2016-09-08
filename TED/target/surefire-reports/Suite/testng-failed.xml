@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" verbose="0" name="Failed suite [Suite]" parallel="classes">
+<suite thread-count="1" verbose="0" name="Failed suite [Suite]" parallel="classes">
   <test name="Test(failed)" parallel="classes">
     <classes>
-      <class name="TestSuite1.StartBrowserWithParameter">
+      <class name="TEDHotelReservation.TestRoomSearch">
         <methods>
-          <include name="beforeTest"/>
-          <include name="afterTest"/>
-          <include name="testEasy"/>
-        </methods>
-      </class> <!-- TestSuite1.StartBrowserWithParameter -->
-      <class name="TestSuite1.RanorexTestCase">
-        <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="testSearchWhenDateFormatIsWrong"/>
+          <include name="setUp"/>
+          <include name="testSearchInRegularWay"/>
         </methods>
-      </class> <!-- TestSuite1.RanorexTestCase -->
+      </class> <!-- TEDHotelReservation.TestRoomSearch -->
+      <class name="TEDHotelReservation.TestHotelFilter">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- TEDHotelReservation.TestHotelFilter -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

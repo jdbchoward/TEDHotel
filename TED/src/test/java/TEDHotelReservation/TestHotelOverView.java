@@ -2,16 +2,17 @@ package TEDHotelReservation;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 /**   
-* @Title: TED Hotel Filter Automation Test case 
+* @Title: TED Hotel Overview Automation Test case 
 * @Package TEDHotelReservation 
-* @Description: Test Hotel Filter function
+* @Description: Test Hotel Overview function
 * @author: Howard
 * @compay: PQA     
-* @date 09/10/2016 
+* @date 09/11/2016 
 * @version V1.0   
 */
 import org.testng.annotations.Test;
@@ -23,7 +24,7 @@ import PageObjects.TestOperations;
 import PageObjects.Wait;
 import junit.framework.Assert;
 
-public class TestHotelFilter {
+public class TestHotelOverView {
 	private WebDriver driver;
 	private Wait wait;
 	CommonActions common;
@@ -39,36 +40,34 @@ public class TestHotelFilter {
 		BrowserLoader brower = new BrowserLoader(browserType);
 		driver = brower.driver;
 		wait = new Wait(driver);
-//		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
 		elementsRepositoryAction = new ElementsRepositoryAction(driver);
 		testOperation = PageFactory.initElements(driver, TestOperations.class);
 
 	}
 
 	@Test
-	public void testFilterByRating() throws Exception {
+	public void testHotelOverViewFunction() throws Exception {
 
-		int expectedhotelNumber=0;
-		int actualhotelnumber=0;
 		testOperation.searchRooms();
 		wait.threadWait(10000);
-		String rateLabel=testOperation.filterByRating();
-		expectedhotelNumber=testOperation.getHotelNumber(rateLabel);		
-		
-		String hotels=elementsRepositoryAction.getElementNoWait("TED_Filter_availableHotels").getText();
-		actualhotelnumber=testOperation.getHotelNumber(hotels);
-		
-		Assert.assertEquals(expectedhotelNumber, actualhotelnumber);
+		WebElement webElement = testOperation.getHotelOverViewInfo();
+		if (webElement != null) {
+			webElement.click();
+			wait.waitForElementPresent(
+					elementsRepositoryAction.getByObjectFromKey("TED_HotelOverView_viewLabel", null));
+			String hotelReview = elementsRepositoryAction.getElementNoWait("TED_HotelOverView_viewLabel").getText();
+			String hotelDetail = elementsRepositoryAction.getElementNoWait("TED_HotelOverView_HotelDetailText")
+					.getText();
+			Assert.assertEquals("Hotel Description", hotelReview);
+			Assert.assertTrue(hotelDetail.contains("Fairmont Waterfront"));
+		}
 
 	}
-
-
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
 		driver.close();
 		driver.quit();
 	}
-	
 
 }

@@ -2,16 +2,17 @@ package TEDHotelReservation;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 /**   
-* @Title: TED Hotel Filter Automation Test case 
+* @Title: TED Hotel Room view Automation Test case 
 * @Package TEDHotelReservation 
-* @Description: Test Hotel Filter function
+* @Description: Test Hotel room view function
 * @author: Howard
 * @compay: PQA     
-* @date 09/10/2016 
+* @date 09/12/2016 
 * @version V1.0   
 */
 import org.testng.annotations.Test;
@@ -23,7 +24,7 @@ import PageObjects.TestOperations;
 import PageObjects.Wait;
 import junit.framework.Assert;
 
-public class TestHotelFilter {
+public class TestHotelRoomView {
 	private WebDriver driver;
 	private Wait wait;
 	CommonActions common;
@@ -39,36 +40,28 @@ public class TestHotelFilter {
 		BrowserLoader brower = new BrowserLoader(browserType);
 		driver = brower.driver;
 		wait = new Wait(driver);
-//		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
 		elementsRepositoryAction = new ElementsRepositoryAction(driver);
 		testOperation = PageFactory.initElements(driver, TestOperations.class);
 
 	}
 
 	@Test
-	public void testFilterByRating() throws Exception {
+	public void testHotelOverViewFunction() throws Exception {
 
-		int expectedhotelNumber=0;
-		int actualhotelnumber=0;
+		//on the hotel there will be a price tag shows "From $** /Night"
+		//after you click "Rooms" button, the same price room will be show below
+		//so if this room been show then this function is fine
 		testOperation.searchRooms();
 		wait.threadWait(10000);
-		String rateLabel=testOperation.filterByRating();
-		expectedhotelNumber=testOperation.getHotelNumber(rateLabel);		
-		
-		String hotels=elementsRepositoryAction.getElementNoWait("TED_Filter_availableHotels").getText();
-		actualhotelnumber=testOperation.getHotelNumber(hotels);
-		
-		Assert.assertEquals(expectedhotelNumber, actualhotelnumber);
-
+		int hoteldisplayed = testOperation.getHotelRoomViewInfo();
+		boolean isDispayed=(hoteldisplayed>=1?true:false);
+	    Assert.assertTrue(isDispayed);
 	}
-
-
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
 		driver.close();
 		driver.quit();
 	}
-	
 
 }

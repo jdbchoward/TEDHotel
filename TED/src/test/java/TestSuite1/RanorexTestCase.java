@@ -31,7 +31,8 @@ public class RanorexTestCase {
 		String browserType = common.getSettings().getValue("browserType");
 		BrowserLoader brower = new BrowserLoader(browserType);
 		driver = brower.driver;
-		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+//		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+		elementsRepositoryAction = new ElementsRepositoryAction(driver);
 		
 		baseUrl = "http://www.ranorex.com";
 		wait = new Wait(driver);

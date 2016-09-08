@@ -40,4 +40,19 @@ TED_Filter_lable:
 TED_Filter_availableHotels:
   type:xpath
   value:"//h4[contains(text(),'Available Hotels')]"  
+TED_HotelOverView_viewLabel:
+  type:xpath
+  value:"//h4[contains(text(),'Hotel Description')]" 
+TED_HotelOverView_HotelDetailText:
+  type:xpath
+  value:"//div[@class='col-xs-12 ng-binding' and contains(text(),'Fairmont Waterfront')]" 
+TED_HotelOverView_hotelPriceTag:
+  type:xpath
+  value:"//span[contains(text(),'$')]"
+TED_HotelOverView_hotelPrice:
+  type:xpath
+  value:"//div[@class='row top2']/div/span[contains(text(),'$')]"
+  
+   
+  
   

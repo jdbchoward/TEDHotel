@@ -56,7 +56,7 @@ public class Wait {
 		try {
 			(new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(by));
 		} catch (Exception e) {
-
+            e.printStackTrace();
 		}
 
 	}

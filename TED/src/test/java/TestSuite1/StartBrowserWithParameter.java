@@ -80,7 +80,8 @@ public class StartBrowserWithParameter {
 	private void initWebElements()
 	{
 		//get elementsRepositoryAction class to read elements path from yaml config file
-		ElementsRepositoryAction elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+//		ElementsRepositoryAction elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+		ElementsRepositoryAction elementsRepositoryAction = new ElementsRepositoryAction(driver);
 		market=elementsRepositoryAction.getElement("JD_button1");
 	}
 

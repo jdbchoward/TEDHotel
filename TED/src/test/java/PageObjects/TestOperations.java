@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class TestOperations {
 
@@ -22,7 +23,9 @@ public class TestOperations {
 		this.driver = driver;
 		baseUrl = "https://demox.mmxreservations.com/";
 		wait = new Wait(driver);
-		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+//		elementsRepositoryAction = ElementsRepositoryAction.getInstance(driver);
+		
+		elementsRepositoryAction = new ElementsRepositoryAction(driver);
 	}
 
 	public void searchRooms() {
@@ -91,4 +94,90 @@ public class TestOperations {
 		return -1;
 	}
 
-}
+	
+	public WebElement getHotelOverViewInfo()
+	{
+		List<WebElement> listWebElements=driver.findElements(By.linkText("Hotel Overview"));
+		if(listWebElements!=null && listWebElements.size()>0)
+		return listWebElements.get(0);	
+		return null;
+
+	}
+	
+
+	public int getHotelRoomViewInfo()
+	{
+		int count=0;
+
+		List<WebElement> listRoomButton=driver.findElements(By.linkText("Rooms"));
+		if(listRoomButton!=null && listRoomButton.size()>0)
+			listRoomButton.get(0).click();
+		
+		String hotelPriceText=elementsRepositoryAction.getElement("TED_HotelOverView_hotelPrice").getText();
+		log.debug("hotelPriceText= "+hotelPriceText);
+		List<WebElement> listWebElements=driver.findElements(By.xpath("//span[contains(text(),'$')]"));
+		if(listWebElements!=null && listWebElements.size()>0)
+		{
+			for(WebElement w:listWebElements)
+			{
+				log.debug("w.getText()= " +w.getText());
+				if(w.getText().equalsIgnoreCase(hotelPriceText))
+					count++;
+			}
+			
+		}
+		log.debug("count= " + count);
+		return count;
+	}
+	
+	public void selectHotel()
+	{
+		List<WebElement> listRoomButton=driver.findElements(By.linkText("Select Hotel"));
+		if(listRoomButton!=null && listRoomButton.size()>0)
+			listRoomButton.get(0).click();
+	}
+	
+	public void modifySelectedRoom()
+	{
+		//change days tooltip tool
+		Actions action = new Actions(driver);
+		WebElement tooltip = driver.findElement(By.xpath("//div[@id='day-dte']"));
+		wait.threadWait(2000);
+		action.clickAndHold(tooltip).perform();
+		
+		//change room number selector
+		List<WebElement> listSelector=driver.findElements(By.xpath("//div[@class='col-sm-12 text-center']/div/select"));
+		if(listSelector!=null && listSelector.size()>=2)
+		{
+			//change room quantity
+			new Select(listSelector.get(0)).selectByVisibleText("2 Rooms");
+			//change adults
+			new Select(listSelector.get(1)).selectByVisibleText("1 Adult");
+		}
+		
+		
+	}
+    public void addToBooking()
+    {
+    	List<WebElement> listRoomButton=driver.findElements(By.linkText("Add to Booking"));
+		if(listRoomButton!=null && listRoomButton.size()>0)
+			listRoomButton.get(0).click();
+    	
+    }
+    
+    
+    public boolean verifyRoomInfor()
+    {
+    	//get room quanlity choosen
+    	List<WebElement> listRoomButton=driver.findElements(By.xpath("//div[@class='row summary-label larger-font']/div/b"));
+		if(listRoomButton!=null && listRoomButton.size()>0)
+			listRoomButton.get(0).getText();
+    	//div[@class='row summary-label larger-font']/div/b
+		
+		
+		//get Total price
+		
+    	return false;
+    }
+    	
+    }

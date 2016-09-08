@@ -17,7 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 /*
- * Singleton Class to get path for elements from external file
+ * never try to Singleton this Class,when running testsuite altogether every case need their own driver.
  */
 public class ElementsRepositoryAction {
 	private static ElementsRepositoryAction elementsRepositoryInstance;
@@ -26,21 +26,28 @@ public class ElementsRepositoryAction {
 	private Map<String, Map<String, String>> elementRepository;
 	private Wait wait;
 
-	private ElementsRepositoryAction(WebDriver driver) {
+//	private ElementsRepositoryAction(WebDriver driver) {
+//		yamlfile = "ElementsPath";
+//		this.getYamlFile();
+//		this.driver = driver;
+//		wait = new Wait(driver);
+//	}
+//	
+	
+	public ElementsRepositoryAction(WebDriver driver) {
 		yamlfile = "ElementsPath";
 		this.getYamlFile();
 		this.driver = driver;
 		wait = new Wait(driver);
 	}
-	
 
-	public static synchronized ElementsRepositoryAction getInstance(WebDriver driver) {
-		if (elementsRepositoryInstance == null) {
-			elementsRepositoryInstance = new ElementsRepositoryAction(driver);
-		}
-		return elementsRepositoryInstance;
-	}
-	
+//	public static synchronized ElementsRepositoryAction getInstance(WebDriver driver) {
+//		if (elementsRepositoryInstance == null) {
+//			elementsRepositoryInstance = new ElementsRepositoryAction(driver);
+//		}
+//		return elementsRepositoryInstance;
+//	}
+//	
 	
 
 	public void getYamlFile() {
@@ -163,7 +170,8 @@ public class ElementsRepositoryAction {
 		options.addArguments("chrome.switches", "--disable-extensions");
 
 		driver = new ChromeDriver(options);
-		ElementsRepositoryAction el = ElementsRepositoryAction.getInstance(driver);
+//		ElementsRepositoryAction el = ElementsRepositoryAction.getInstance(driver);
+		ElementsRepositoryAction el  = new ElementsRepositoryAction(driver);
 		// TODO Auto-generated method stub
 
 		// el.driver.navigate().to("http://www.baidu.com");

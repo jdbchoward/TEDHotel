@@ -1,31 +1,9 @@
 package TEDHotelReservation;
 
-/**   
-* @Title: TED Hotel Reservation Automation Test case 
-* @Package TEDHotelReservation 
-* @Description: Test room search function
-* @author: Howard
-* @compay: PQA     
-* @date 09/10/2016 
-* @version V1.0   
-*/
-
-import static org.testng.Assert.fail;
-
-import java.util.concurrent.TimeUnit;
-
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -35,6 +13,17 @@ import PageObjects.ElementsRepositoryAction;
 import PageObjects.TestOperations;
 import PageObjects.Wait;
 import junit.framework.Assert;
+
+
+/**   
+* @Title: TED HotelSearch Automation Test case 
+* @Package TEDHotelReservation 
+* @Description: Test Hotel Search function
+* @author: Howard
+* @compay: PQA     
+* @date 09/10/2016 
+* @version V1.0   
+*/
 
 public class TestRoomSearch {
 	private WebDriver driver;
@@ -91,8 +80,9 @@ public class TestRoomSearch {
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
-		driver.close();
+		driver.close();	
 		driver.quit();
 	}
+	
 
 }
