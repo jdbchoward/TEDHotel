@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import junit.framework.Assert;
+
 public class TestOperations {
 
 	private WebDriver driver;
@@ -168,16 +170,41 @@ public class TestOperations {
     
     public boolean verifyRoomInfor()
     {
+    	boolean verified=false;
     	//get room quanlity choosen
-    	List<WebElement> listRoomButton=driver.findElements(By.xpath("//div[@class='row summary-label larger-font']/div/b"));
-		if(listRoomButton!=null && listRoomButton.size()>0)
-			listRoomButton.get(0).getText();
-    	//div[@class='row summary-label larger-font']/div/b
+    	List<WebElement> listRoomCountLabel=driver.findElements(By.xpath("//div[@class='row summary-label larger-font']/div/b"));
+		if(listRoomCountLabel!=null && listRoomCountLabel.size()>0)
+		{
+			if(Integer.parseInt(listRoomCountLabel.get(0).getText())>1)
+				verified=true;				
+		}
+			
+	
+		List<WebElement> roomPriceLabel=driver.findElements(By.xpath("//div[@class='row summary-label larger-font']/div/b"));
+		if(roomPriceLabel!=null && roomPriceLabel.size()>0)
+			{
+			  String totalPrice=roomPriceLabel.get(1).getText();			  
+			  String p=totalPrice.replaceAll(",", "").trim().substring(1,4);
+			  if(Integer.parseInt(p)>1000)
+				  verified=true;			  
+			}
+		else
+			verified=false;
+			
 		
+		//get room left
+		List<WebElement> roomLeftLabel=driver.findElements(By.xpath("//span[contains(text(),'Only')]"));
+		if(roomLeftLabel!=null && roomLeftLabel.size()>0)
+		{
+			String roomleft=roomLeftLabel.get(0).getText();
+			String[] roomLeftNumber=roomleft.split(" ");
+			if(Integer.parseInt(roomLeftNumber[1])>0)
+				 verified=true;	
+		}
+		else
+			verified=false;
 		
-		//get Total price
-		
-    	return false;
+    	return verified;
     }
     	
     }

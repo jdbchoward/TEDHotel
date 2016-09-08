@@ -52,15 +52,15 @@ public class TestSelectHotelRoom {
 		wait.threadWait(10000);
 		testOperation.selectHotel();
 		testOperation.modifySelectedRoom();
-		
-		
+		Assert.assertTrue(testOperation.verifyRoomInfor());
+		testOperation.addToBooking();		
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 }
