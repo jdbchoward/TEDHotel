@@ -56,14 +56,16 @@ public class TestCheckoutReservation {
 		wait.threadWait(10000);
 		testOperation.checkoutReservation();
 		
-		//h4 Review and Submit Reservation
+		//check page has been switch to review after fill in form and click the button
+		String reviewReservation=elementsRepositoryAction.getElement("TED_HotelCheckout_confirm").getText();
+		Assert.assertEquals("Review and Submit Reservation", reviewReservation);
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 }

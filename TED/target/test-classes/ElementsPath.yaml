@@ -125,5 +125,8 @@ TED_HotelCheckout_Form_Guest2LastName:
   type:xpath
   value:"//input[@placeholder='Guest 2 Last Name*']"
 TED_HotelCheckout_Form_ReviewBtn:
-  type:linkText
-  value:"Review" 
+  type:xpath
+  value:"//span[contains(text(),'Review')]"
+TED_HotelCheckout_confirm:
+  type:xpath
+  value:"//h4[contains(text(),'Review and Submit Reservation')]" 

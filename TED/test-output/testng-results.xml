@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="67401" started-at="2016-09-08T22:44:49Z" finished-at="2016-09-08T22:45:57Z">
+  <suite name="Default suite" duration-ms="38892" started-at="2016-09-08T23:28:01Z" finished-at="2016-09-08T23:28:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="67401" started-at="2016-09-08T22:44:49Z" finished-at="2016-09-08T22:45:57Z">
+    <test name="Default test" duration-ms="38892" started-at="2016-09-08T23:28:01Z" finished-at="2016-09-08T23:28:40Z">
       <class name="TEDHotelReservation.TestCheckoutReservation">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4a22f9e2]" name="setUp" is-config="true" duration-ms="3579" started-at="2016-09-08T15:44:49Z" finished-at="2016-09-08T15:44:53Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="setUp" is-config="true" duration-ms="5984" started-at="2016-09-08T16:28:01Z" finished-at="2016-09-08T16:28:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testHotelOverViewFunction()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4a22f9e2]" name="testHotelOverViewFunction" duration-ms="63803" started-at="2016-09-08T15:44:53Z" finished-at="2016-09-08T15:45:57Z">
+        <test-method status="PASS" signature="testHotelOverViewFunction()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="testHotelOverViewFunction" duration-ms="31875" started-at="2016-09-08T16:28:07Z" finished-at="2016-09-08T16:28:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testHotelOverViewFunction -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4a22f9e2]" name="tearDown" is-config="true" duration-ms="1" started-at="2016-09-08T15:45:57Z" finished-at="2016-09-08T15:45:57Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="tearDown" is-config="true" duration-ms="1020" started-at="2016-09-08T16:28:39Z" finished-at="2016-09-08T16:28:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

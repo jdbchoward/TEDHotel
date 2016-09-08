@@ -221,10 +221,6 @@ public class TestOperations {
 		elementsRepositoryAction.getElement("TED_HotelCheckout_Form_Guest1Email").sendKeys("fakeemail344455@gmail.com");
 		new Select(elementsRepositoryAction.getElement("TED_HotelCheckout_Form_eta")).selectByVisibleText("10:30 AM");
 		
-		
-		List<WebElement> reviewButton = driver.findElements(By.linkText("Review"));
-		if (reviewButton != null && reviewButton.size() > 0)
-			reviewButton.get(0).click();
-//		elementsRepositoryAction.getElement("TED_HotelCheckout_Form_ReviewBtn").click();
+		elementsRepositoryAction.getElement("TED_HotelCheckout_Form_ReviewBtn").click();
 	}
 }
