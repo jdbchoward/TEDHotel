@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TEDHotelReservation.TestCheckoutReservation">
+      <class name="example.TestExtjs">
         <methods>
           <include name="setUp"/>
-          <include name="testHotelOverViewFunction"/>
+          <include name="testArrayGrid"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- TEDHotelReservation.TestCheckoutReservation -->
+      </class> <!-- example.TestExtjs -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

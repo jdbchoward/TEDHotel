@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="38892" started-at="2016-09-08T23:28:01Z" finished-at="2016-09-08T23:28:40Z">
+  <suite name="Default suite" duration-ms="16253" started-at="2016-09-17T00:01:53Z" finished-at="2016-09-17T00:02:09Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="38892" started-at="2016-09-08T23:28:01Z" finished-at="2016-09-08T23:28:40Z">
-      <class name="TEDHotelReservation.TestCheckoutReservation">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="setUp" is-config="true" duration-ms="5984" started-at="2016-09-08T16:28:01Z" finished-at="2016-09-08T16:28:07Z">
+    <test name="Default test" duration-ms="16253" started-at="2016-09-17T00:01:53Z" finished-at="2016-09-17T00:02:09Z">
+      <class name="example.TestExtjs">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:example.TestExtjs@4501b7af]" name="setUp" is-config="true" duration-ms="3324" started-at="2016-09-16T17:01:53Z" finished-at="2016-09-16T17:01:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testHotelOverViewFunction()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="testHotelOverViewFunction" duration-ms="31875" started-at="2016-09-08T16:28:07Z" finished-at="2016-09-08T16:28:39Z">
+        <test-method status="PASS" signature="testArrayGrid()[pri:0, instance:example.TestExtjs@4501b7af]" name="testArrayGrid" duration-ms="9629" started-at="2016-09-16T17:01:56Z" finished-at="2016-09-16T17:02:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHotelOverViewFunction -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TEDHotelReservation.TestCheckoutReservation@4501b7af]" name="tearDown" is-config="true" duration-ms="1020" started-at="2016-09-08T16:28:39Z" finished-at="2016-09-08T16:28:40Z">
+        </test-method> <!-- testArrayGrid -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:example.TestExtjs@4501b7af]" name="tearDown" is-config="true" duration-ms="3286" started-at="2016-09-16T17:02:06Z" finished-at="2016-09-16T17:02:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- TEDHotelReservation.TestCheckoutReservation -->
+      </class> <!-- example.TestExtjs -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
